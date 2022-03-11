@@ -56,7 +56,7 @@ jobs:
       if: (!cancelled())
       run: |
         [ -d immortalwrt-armvirt ] || mkdir -p immortalwrt-armvirt
-        curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "ImmortalWrt-${{ env.RELEASES_BRANCH }}.*/ImmortalWrt-armvirt-.*.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
+        curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "ImmortalWrt-${{ env.RELEASES_BRANCH }}.*/immortalwrt-21.02-armvirt-.*.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
         [ -s DOWNLOAD_ARMVIRT ] && wget -q -P immortalwrt-armvirt https://github.com/${GITHUB_REPOSITORY}/releases/download/$(cat DOWNLOAD_ARMVIRT)
         sudo chmod +x make
         sudo ./make -d ${{ github.event.inputs.more_settings }}
@@ -80,7 +80,7 @@ jobs:
           Default IP: 192.168.1.1
           Default username: root
           Default password: none
-          Default WIFI name: ImmortalWrt
+          Default WIFI name: LYNX
           Default WIFI password: none
           Install to EMMC: Login to ImmortalWrt → System → Amlogic Service → Install OpenWrt
 
