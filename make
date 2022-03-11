@@ -564,7 +564,7 @@ make_image() {
     process_msg " (5/7) Make openwrt image."
     cd ${make_path}
 
-    build_image_file="${out_path}/immortalwrt-21.02-${soc}-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
+    build_image_file="${out_path}/immortalwrt-21.02-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
     #build_image_file="${out_path}/openwrt_${soc}_k${kernel}_$(date +"%Y.%m.%d.%H%M").img"
     rm -f ${build_image_file}
     sync
