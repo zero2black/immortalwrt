@@ -2,7 +2,7 @@
 make_path="${PWD}"
 tmp_path="${make_path}/tmp"
 out_path="${make_path}/out"
-openwrt_path="${make_path}/immortalwrt"
+openwrt_path="${make_path}/immortalwrt-armvirt"
 openwrt_file="immortalwrt-armvirt-64-default-rootfs.tar.gz"
 amlogic_path="${make_path}/amlogic"
 armbian_path="${amlogic_path}/firmware"
