@@ -27,7 +27,7 @@ svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
 
-# preset-clash-core
+# Set preset-clash-core
 mkdir -p files/etc/openclash/core
 OPENCLASH_MAIN_URL=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
 CLASH_TUN_URL=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
@@ -37,7 +37,7 @@ wget -qO- $CLASH_TUN_URL | gunzip -c > files/etc/openclash/core/clash_tun
 wget -qO- $CLASH_GAME_URL | tar xOvz > files/etc/openclash/core/clash_game
 chmod +x files/etc/openclash/core/clash*
 
-# preset-speedtest
+# Set preset-speedtest
 mkdir -p files/usr/bin
 wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz | tar xOvz > files/usr/bin/speedtest
 chmod +x files/usr/bin/speedtest
