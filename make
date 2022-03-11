@@ -3,7 +3,7 @@ make_path="${PWD}"
 tmp_path="${make_path}/tmp"
 out_path="${make_path}/out"
 openwrt_path="${make_path}/immortalwrt-armvirt"
-openwrt_file="ImmortalWrt-armvirt-64-default-rootfs.tar.gz"
+openwrt_file="immortalwrt-21.02-armvirt-64-default-rootfs.tar.gz"
 amlogic_path="${make_path}/amlogic"
 armbian_path="${amlogic_path}/firmware"
 dtb_path="${amlogic_path}/dtb"
@@ -567,7 +567,7 @@ make_image() {
     process_msg " (5/7) Make openwrt image."
     cd ${make_path}
 
-    build_image_file="${out_path}/ImmortalWrt-21.02-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
+    build_image_file="${out_path}/immortalwrt-21.02-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
     #build_image_file="${out_path}/openwrt_${soc}_k${kernel}_$(date +"%Y.%m.%d.%H%M").img"
     rm -f ${build_image_file}
     sync
