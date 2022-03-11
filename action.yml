@@ -13,7 +13,7 @@ inputs:
   amlogic_kernel:
     description: 'Choose kernel.'
     required: false
-    default: '5.15.27_5.4.183'
+    default: '5.15.28_5.4.184'
   auto_kernel:
     description: 'Auto use the latest kernel.'
     required: false
