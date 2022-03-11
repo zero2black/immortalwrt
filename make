@@ -24,7 +24,7 @@ script_repo="https://github.com/ophub/luci-app-amlogic/tree/main/luci-app-amlogi
 #kernel_repo="https://github.com/ophub/kernel/tree/main/pub"
 kernel_repo="https://github.com/lynxnexy/kernel/tree/main/pub"
 version_branch="stable"
-build_kernel=("5.15.27" "5.4.183")
+build_kernel=("5.15.28" "5.4.184")
 auto_kernel="true"
 #
 # Set OpenWrt firmware size (BOOT_MB >= 256, ROOT_MB >= 512)
@@ -479,6 +479,9 @@ EOF
         sed -i "/exit/i\/usr/sbin/balethirq.pl" etc/rc.local >/dev/null 2>&1
         cp -f ${balethirq_file}/balance_irq etc/balance_irq >/dev/null 2>&1
     fi
+    
+    # Fix luci-app-3ginfo-lite
+    chmod -R +x usr/share/3ginfo-lite/ >/dev/null 2>&1
 
     # Add firmware information
     echo "PLATFORM='amlogic'" >>${op_release} 2>/dev/null
@@ -564,7 +567,7 @@ make_image() {
     process_msg " (5/7) Make openwrt image."
     cd ${make_path}
 
-    build_image_file="${out_path}/immortalwrt-21.02-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
+    build_image_file="${out_path}/ImmortalWrt-21.02-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
     #build_image_file="${out_path}/openwrt_${soc}_k${kernel}_$(date +"%Y.%m.%d.%H%M").img"
     rm -f ${build_image_file}
     sync
