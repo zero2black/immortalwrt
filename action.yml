@@ -35,8 +35,8 @@ runs:
         cd ${GITHUB_ACTION_PATH}
         echo -e "ophub package actions path: ${PWD}"
         [ -z "${{ inputs.armvirt64_path }}" ] && echo -e "The [ armvirt64_path ] variable must be specified." && exit 1
-        [ -d openwrt-armvirt ] || sudo mkdir -p openwrt-armvirt
-        sudo cp -f ${GITHUB_WORKSPACE}/${{ inputs.armvirt64_path }} openwrt-armvirt && sync
+        [ -d immortalwrt-armvirt ] || sudo mkdir -p immortalwrt-armvirt
+        sudo cp -f ${GITHUB_WORKSPACE}/${{ inputs.armvirt64_path }} immortalwrt-armvirt && sync
         make_command=" -d"
         [ -n ${{ inputs.amlogic_openwrt }} ] && make_command="${make_command} -b ${{ inputs.amlogic_openwrt }}"
         [ -n ${{ inputs.amlogic_kernel }} ] && make_command="${make_command} -k ${{ inputs.amlogic_kernel }}"
