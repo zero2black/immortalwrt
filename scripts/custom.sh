@@ -5,18 +5,30 @@
 # Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
 
-# change ssid
-sed -i "s/OpenWrt/LYNX/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# Set ssid
+sed -i "s/OpenWrt/ImmortalWrt/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
-# change timezone
+# Set default password
+sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
+
+# Set timezone
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
 
+# Add luci-app-modeminfo
+svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+
+# Add luci-app-mmconfig
+svn co https://github.com/koshev-msk/luci-app-mmconfig/trunk package/luci-app-mmconfig
+
+# Add Fibocom L850/L860 scripts
+svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
+
 # Set etc/openwrt_release
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
-echo "DISTRIB_SOURCECODE='openwrt'" >>package/base-files/files/etc/openwrt_release
+echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
