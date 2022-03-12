@@ -1,7 +1,7 @@
 #==================================================================================
-# https://github.com/lynxnexy/immortalwrt
-# Description: Automatically Build ImmortalWrt for Amlogic
-# Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
+# https://github.com/ophub/amlogic-s9xxx-openwrt
+# Description: Automatically Build OpenWrt for Amlogic s9xxx tv box
+# Source code repository: https://github.com/openwrt/openwrt / Branch: 21.02
 #==================================================================================
 
 # Build Firmware:
@@ -46,14 +46,52 @@ CONFIG_TARGET_UBIFS_JOURNAL_SIZE=""
 # CONFIG_TARGET_IMAGES_GZIP is not set
 # CONFIG_EXPERIMENTAL is not set
 
+# Translations
+# CONFIG_LUCI_LANG_ar is not set
+# CONFIG_LUCI_LANG_bg is not set
+# CONFIG_LUCI_LANG_bn_BD is not set
+# CONFIG_LUCI_LANG_ca is not set
+# CONFIG_LUCI_LANG_cs is not set
+# CONFIG_LUCI_LANG_de is not set
+# CONFIG_LUCI_LANG_el is not set
+CONFIG_LUCI_LANG_en=y
+# CONFIG_LUCI_LANG_es is not set
+# CONFIG_LUCI_LANG_fi is not set
+# CONFIG_LUCI_LANG_fr is not set
+# CONFIG_LUCI_LANG_he is not set
+# CONFIG_LUCI_LANG_hi is not set
+# CONFIG_LUCI_LANG_hu is not set
+# CONFIG_LUCI_LANG_it is not set
+# CONFIG_LUCI_LANG_ja is not set
+# CONFIG_LUCI_LANG_ko is not set
+# CONFIG_LUCI_LANG_mr is not set
+# CONFIG_LUCI_LANG_ms is not set
+# CONFIG_LUCI_LANG_nb_NO is not set
+# CONFIG_LUCI_LANG_nl is not set
+# CONFIG_LUCI_LANG_pl is not set
+# CONFIG_LUCI_LANG_pt is not set
+# CONFIG_LUCI_LANG_pt_BR is not set
+# CONFIG_LUCI_LANG_ro is not set
+# CONFIG_LUCI_LANG_ru is not set
+# CONFIG_LUCI_LANG_sk is not set
+# CONFIG_LUCI_LANG_sv is not set
+# CONFIG_LUCI_LANG_tr is not set
+# CONFIG_LUCI_LANG_uk is not set
+# CONFIG_LUCI_LANG_vi is not set
+CONFIG_LUCI_LANG_zh_Hans=y
+# CONFIG_LUCI_LANG_zh_Hant is not set
+
 # National language packs, luci-i18n-base:
+# CONFIG_PACKAGE_luci-i18n-base-ar is not set
 # CONFIG_PACKAGE_luci-i18n-base-bg is not set
+# CONFIG_PACKAGE_luci-i18n-base-bn is not set
 # CONFIG_PACKAGE_luci-i18n-base-ca is not set
 # CONFIG_PACKAGE_luci-i18n-base-cs is not set
 # CONFIG_PACKAGE_luci-i18n-base-de is not set
 # CONFIG_PACKAGE_luci-i18n-base-el is not set
 CONFIG_PACKAGE_luci-i18n-base-en=y
 # CONFIG_PACKAGE_luci-i18n-base-es is not set
+# CONFIG_PACKAGE_luci-i18n-base-fi is not set
 # CONFIG_PACKAGE_luci-i18n-base-fr is not set
 # CONFIG_PACKAGE_luci-i18n-base-he is not set
 # CONFIG_PACKAGE_luci-i18n-base-hi is not set
@@ -61,7 +99,9 @@ CONFIG_PACKAGE_luci-i18n-base-en=y
 # CONFIG_PACKAGE_luci-i18n-base-it is not set
 # CONFIG_PACKAGE_luci-i18n-base-ja is not set
 # CONFIG_PACKAGE_luci-i18n-base-ko is not set
+# CONFIG_PACKAGE_luci-i18n-base-mr is not set
 # CONFIG_PACKAGE_luci-i18n-base-ms is not set
+# CONFIG_PACKAGE_luci-i18n-base-nl is not set
 # CONFIG_PACKAGE_luci-i18n-base-no is not set
 # CONFIG_PACKAGE_luci-i18n-base-pl is not set
 # CONFIG_PACKAGE_luci-i18n-base-pt is not set
@@ -75,6 +115,8 @@ CONFIG_PACKAGE_luci-i18n-base-en=y
 # CONFIG_PACKAGE_luci-i18n-base-vi is not set
 CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-base-zh-tw is not set
+CONFIG_PACKAGE_luci-i18n-amlogic-en=y
+CONFIG_PACKAGE_luci-i18n-amlogic-zh-cn=y
 
 # Firmware:
 CONFIG_PACKAGE_brcmfmac-firmware-4329-sdio=y
@@ -107,6 +149,9 @@ CONFIG_PACKAGE_wireless-regdb=y
 # Wireless Drivers:
 # CONFIG_PACKAGE_kmod-adm8211 is not set
 CONFIG_PACKAGE_kmod-ath=y
+CONFIG_ATH_USER_REGD=y
+# CONFIG_PACKAGE_ATH_DEBUG is not set
+CONFIG_PACKAGE_ATH_DFS=y
 CONFIG_PACKAGE_kmod-ath10k=y
 # CONFIG_PACKAGE_kmod-ath10k-ct is not set
 # CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers is not set
@@ -121,6 +166,8 @@ CONFIG_PACKAGE_kmod-ath9k-htc=y
 # CONFIG_PACKAGE_kmod-b43 is not set
 # CONFIG_PACKAGE_kmod-b43legacy is not set
 CONFIG_PACKAGE_kmod-brcmfmac=y
+CONFIG_BRCMFMAC_SDIO=y
+CONFIG_BRCMFMAC_USB=y
 # CONFIG_BRCMFMAC_PCIE is not set
 # CONFIG_PACKAGE_kmod-brcmsmac is not set
 CONFIG_PACKAGE_kmod-brcmutil=y
@@ -148,19 +195,29 @@ CONFIG_PACKAGE_kmod-mac80211=y
 CONFIG_PACKAGE_MAC80211_MESH=y
 # CONFIG_PACKAGE_kmod-mac80211-hwsim is not set
 # CONFIG_PACKAGE_kmod-mt76 is not set
+CONFIG_PACKAGE_kmod-mt76-connac=y
+CONFIG_PACKAGE_kmod-mt76-core=y
+CONFIG_PACKAGE_kmod-mt76-usb=y
 CONFIG_PACKAGE_kmod-mt7601u=y
 # CONFIG_PACKAGE_kmod-mt7603 is not set
+CONFIG_PACKAGE_kmod-mt7615-common=y
 # CONFIG_PACKAGE_kmod-mt7615-firmware is not set
 # CONFIG_PACKAGE_kmod-mt7615e is not set
 # CONFIG_PACKAGE_kmod-mt7663-firmware-ap is not set
 # CONFIG_PACKAGE_kmod-mt7663-firmware-sta is not set
+CONFIG_PACKAGE_kmod-mt7663-usb-sdio=y
 # CONFIG_PACKAGE_kmod-mt7663s is not set
-# CONFIG_PACKAGE_kmod-mt7663u is not set
+CONFIG_PACKAGE_kmod-mt7663u=y
+CONFIG_PACKAGE_kmod-mt76x0-common=y
+CONFIG_PACKAGE_kmod-mt76x02-common=y
+CONFIG_PACKAGE_kmod-mt76x02-usb=y
 # CONFIG_PACKAGE_kmod-mt76x0e is not set
-# CONFIG_PACKAGE_kmod-mt76x0u is not set
+CONFIG_PACKAGE_kmod-mt76x0u=y
 # CONFIG_PACKAGE_kmod-mt76x2 is not set
-# CONFIG_PACKAGE_kmod-mt76x2u is not set
+CONFIG_PACKAGE_kmod-mt76x2-common=y
+CONFIG_PACKAGE_kmod-mt76x2u=y
 # CONFIG_PACKAGE_kmod-mt7915e is not set
+# CONFIG_PACKAGE_kmod-mt7921e is not set
 # CONFIG_PACKAGE_kmod-mwifiex-pcie is not set
 # CONFIG_PACKAGE_kmod-mwifiex-sdio is not set
 # CONFIG_PACKAGE_kmod-mwl8k is not set
@@ -196,6 +253,7 @@ CONFIG_PACKAGE_kmod-rtl8812au-ct=y
 CONFIG_PACKAGE_kmod-rtl8821ae=y
 CONFIG_PACKAGE_kmod-rtl8xxxu=y
 CONFIG_PACKAGE_kmod-rtlwifi=y
+# CONFIG_PACKAGE_RTLWIFI_DEBUG is not set
 CONFIG_PACKAGE_kmod-rtlwifi-usb=y
 CONFIG_PACKAGE_kmod-rtw88=y
 # CONFIG_PACKAGE_kmod-wl12xx is not set
@@ -372,13 +430,15 @@ CONFIG_PACKAGE_kmod-mii=y
 # WirelessAPD:
 CONFIG_PACKAGE_hostapd-common=y
 CONFIG_PACKAGE_wpa-cli=y
+CONFIG_WPA_MSG_MIN_PRIORITY=3
 CONFIG_DRIVER_WEXT_SUPPORT=y
 CONFIG_DRIVER_11N_SUPPORT=y
 CONFIG_DRIVER_11AC_SUPPORT=y
 CONFIG_PACKAGE_wpad=y
 
 # Other Config info:
-CONFIG_LUCI_LANG_en=y
+CONFIG_BRCMFMAC_SDIO=y
+CONFIG_BRCMFMAC_USB=y
 
 # Applications:
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set
@@ -591,15 +651,15 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 # CONFIG_PACKAGE_luci-app-unblockneteasemusic is not set
 # CONFIG_PACKAGE_luci-app-unblockneteasemusic-go is not set
 # CONFIG_PACKAGE_luci-app-unbound is not set
-# CONFIG_PACKAGE_luci-app-upnp is not set
-# CONFIG_PACKAGE_luci-app-usb-printer is not set
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-usb-printer=y
 # CONFIG_PACKAGE_luci-app-usb3disable is not set
 # CONFIG_PACKAGE_luci-app-uugamebooster is not set
 # CONFIG_PACKAGE_luci-app-v2ray-server is not set
 # CONFIG_PACKAGE_luci-app-verysync is not set
 # CONFIG_PACKAGE_luci-app-vlmcsd is not set
-# CONFIG_PACKAGE_luci-app-vnstat is not set
-CONFIG_PACKAGE_luci-app-vnstat2=y
+CONFIG_PACKAGE_luci-app-vnstat=y
+# CONFIG_PACKAGE_luci-app-vnstat2 is not set
 # CONFIG_PACKAGE_luci-app-vpn-policy-routing is not set
 # CONFIG_PACKAGE_luci-app-vpnbypass is not set
 CONFIG_PACKAGE_luci-app-vsftpd=y
@@ -644,12 +704,11 @@ CONFIG_PACKAGE_luci-proto-ncm=y
 CONFIG_PACKAGE_luci-proto-ppp=y
 # CONFIG_PACKAGE_luci-proto-pppossh is not set
 CONFIG_PACKAGE_luci-proto-qmi=y
-CONFIG_PACKAGE_luci-proto-relay=y
+# CONFIG_PACKAGE_luci-proto-relay is not set
 CONFIG_PACKAGE_luci-proto-sstp=y
 # CONFIG_PACKAGE_luci-proto-vpnc is not set
 # CONFIG_PACKAGE_luci-proto-vxlan is not set
 CONFIG_PACKAGE_luci-proto-wireguard=y
-
 
 # Perl:
 CONFIG_PACKAGE_perl=y
@@ -682,12 +741,14 @@ CONFIG_PACKAGE_coreutils=y
 CONFIG_PACKAGE_coreutils-base64=y
 CONFIG_PACKAGE_coreutils-nohup=y
 CONFIG_PACKAGE_default-settings=y
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_docker-compose=y
+CONFIG_PACKAGE_dockerd=y
 CONFIG_PACKAGE_dumpe2fs=y
 CONFIG_PACKAGE_dosfstools=y
 CONFIG_PACKAGE_ethtool=y
 CONFIG_PACKAGE_e2freefrag=y
 CONFIG_PACKAGE_e2fsprogs=y
-CONFIG_PACKAGE_ffmpeg=y
 CONFIG_PACKAGE_f2fs-tools=y
 CONFIG_PACKAGE_f2fsck=y
 CONFIG_PACKAGE_fdisk=y
@@ -732,27 +793,16 @@ CONFIG_PACKAGE_lsblk=y
 CONFIG_PACKAGE_lscpu=y
 CONFIG_PACKAGE_lz4=y
 CONFIG_PACKAGE_mkf2fs=y
+CONFIG_PACKAGE_modemmanager=y=y
 CONFIG_PACKAGE_mount-utils=y
 CONFIG_PACKAGE_nano=y
-CONFIG_PACKAGE_netdata=y
+# CONFIG_PACKAGE_netdata is not set
 CONFIG_PACKAGE_ntfs-3g=y
-CONFIG_PACKAGE_openssh-sftp-client=y
-CONFIG_PACKAGE_openssh-sftp-server=y
 CONFIG_PACKAGE_openssl-util=y
+CONFIG_PACKAGE_p7zip=y
 CONFIG_PACKAGE_parted=y
 CONFIG_PACKAGE_pv=y
-CONFIG_PACKAGE_python3=y
-CONFIG_PACKAGE_python3-codecs=y
-CONFIG_PACKAGE_python3-ctypes=y
-CONFIG_PACKAGE_python3-email=y
-CONFIG_PACKAGE_python3-mutagen=y
-CONFIG_PACKAGE_python3-cryptodomex=y
-CONFIG_PACKAGE_python3-setuptools=y
-CONFIG_PACKAGE_python3-websockets=y
-CONFIG_PACKAGE_python3-xml=y
 CONFIG_PACKAGE_qmi-utils=y
-CONFIG_PACKAGE_qrencode=y
-CONFIG_PACKAGE_rclone=y
 CONFIG_PACKAGE_runc=y
 CONFIG_PACKAGE_resize2fs=y
 CONFIG_PACKAGE_sysstat=y
@@ -764,16 +814,24 @@ CONFIG_PACKAGE_samba4-admin=y
 CONFIG_PACKAGE_samba4-client=y
 CONFIG_PACKAGE_samba4-libs=y
 CONFIG_PACKAGE_samba4-server=y
+CONFIG_SAMBA4_SERVER_NETBIOS=y
+CONFIG_SAMBA4_SERVER_AVAHI=y
+CONFIG_SAMBA4_SERVER_VFS=y
 CONFIG_PACKAGE_samba4-utils=y
 CONFIG_PACKAGE_tree=y
 CONFIG_PACKAGE_tune2fs=y
 CONFIG_PACKAGE_tar=y
+CONFIG_PACKAGE_TAR_POSIX_ACL=y
+CONFIG_PACKAGE_TAR_XATTR=y
+CONFIG_PACKAGE_TAR_BZIP2=y
+CONFIG_PACKAGE_TAR_GZIP=y
+CONFIG_PACKAGE_TAR_XZ=y
+CONFIG_PACKAGE_TAR_ZSTD=y
 CONFIG_PACKAGE_tini=y
 CONFIG_PACKAGE_unzip=y
 CONFIG_PACKAGE_usb-modeswitch=y
 CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_usbreset=y
-CONFIG_PACKAGE_unrar=y
 CONFIG_PACKAGE_uuid=y
 CONFIG_PACKAGE_uuidgen=y
 CONFIG_PACKAGE_vim=y
@@ -782,16 +840,48 @@ CONFIG_PACKAGE_wireless-tools=y
 CONFIG_PACKAGE_wireguard-tools=y
 CONFIG_PACKAGE_whereis=y
 CONFIG_PACKAGE_wget=y
-CONFIG_PACKAGE_wpad=y
 CONFIG_PACKAGE_wwan=y
-CONFIG_PACKAGE_yt-dlp=y
 CONFIG_PACKAGE_xfs-fsck=y
 CONFIG_PACKAGE_xfs-mkfs=y
 CONFIG_PACKAGE_xz-utils=y
 CONFIG_PACKAGE_xz=y
 CONFIG_PACKAGE_zstd=y
+CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
+CONFIG_DOCKER_STO_EXT4=y
+CONFIG_DOCKER_STO_BTRFS=y
+CONFIG_RUNC_SECCOMP=y
 CONFIG_STRACE_NONE=y
+CONFIG_PCAP_HAS_USB=y
+CONFIG_PCAP_HAS_NETFILTER=y
 CONFIG_KERNEL_MAGIC_SYSRQ=y
+
+CONFIG_PACKAGE_bc=y
+CONFIG_PACKAGE_ntfs-3g=y
+CONFIG_PACKAGE_ntfs-3g-utils=y
+CONFIG_PACKAGE_libpam=y
+CONFIG_PACKAGE_ipv6-helper=y
+CONFIG_PACKAGE_autocore-arm=y
+CONFIG_PACKAGE_wsdd2=y
+CONFIG_PACKAGE_liblzma=y
+CONFIG_PACKAGE_luci-lib-base=y
+CONFIG_PACKAGE_wget-ssl=y
+CONFIG_PACKAGE_libnetsnmp=y
+CONFIG_PACKAGE_libcap=y
+CONFIG_PACKAGE_openssh-sftp-client=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+CONFIG_PACKAGE_python3=y
+CONFIG_PACKAGE_python3-codecs=y
+CONFIG_PACKAGE_python3-ctypes=y
+CONFIG_PACKAGE_python3-email=y
+CONFIG_PACKAGE_python3-mutagen=y
+CONFIG_PACKAGE_python3-cryptodomex=y
+CONFIG_PACKAGE_python3-setuptools=y
+CONFIG_PACKAGE_python3-websockets=y
+CONFIG_PACKAGE_python3-xml=y
+CONFIG_PACKAGE_qrencode=y
+CONFIG_PACKAGE_unrar=y
+CONFIG_PACKAGE_ffmpeg=y
+CONFIG_PACKAGE_yt-dlp=y
 
 # Custom:
 CONFIG_PACKAGE_luci-app-3ginfo-lite=y
