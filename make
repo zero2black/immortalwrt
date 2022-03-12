@@ -10,7 +10,7 @@ dtb_path="${amlogic_path}/dtb"
 kernel_path="${amlogic_path}/kernel"
 uboot_path="${amlogic_path}/u-boot"
 configfiles_path="${amlogic_path}/common"
-op_release="etc/immortalwrt-release" # Add custom openwrt firmware information
+op_release="etc/flippy-openwrt-release" # Add custom openwrt firmware information
 build_openwrt=("s905x")
 #build_openwrt=("a311d" "s922x" "s922x-n2" "s922x-reva" "s905x3" "s905x2" "s905l3a" "s905x2-km3" "s912" "s912-t95z" "s905d" "s905d-ki" "s905x" "s905w" "s905")
 #
