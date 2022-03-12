@@ -38,7 +38,7 @@ wget -qO- $CLASH_GAME_URL | tar xOvz > files/etc/openclash/core/clash_game
 chmod +x files/etc/openclash/core/clash*
 
 # Set preset-speedtest
-mkdir -p files/usr/bin
-wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz | tar xOvz > files/usr/bin/speedtest
-chmod +x files/usr/bin/speedtest
+mkdir -p files/bin
+wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
+chmod +x files/bin/speedtest
 
