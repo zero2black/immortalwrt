@@ -54,3 +54,21 @@ chmod +x files/etc/openclash/core/clash*
 mkdir -p files/bin
 wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
 chmod +x files/bin/speedtest
+
+# Set oh-my-zsh
+mkdir -p files/root
+pushd files/root
+git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
+cp $GITHUB_WORKSPACE/amlogic/common/patches/zsh/.zshrc .
+cp $GITHUB_WORKSPACE/amlogic/common/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
+popd
+
+# Set banner
+rm -rf ./package/emortal/default-settings/files/openwrt_banner
+svn export https://github.com/lynxnexy/immortalwrt/trunk/amlogic/common/files/etc/banner package/emortal/default-settings/files/openwrt_banner
+
+# Set shell zsh
+sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
