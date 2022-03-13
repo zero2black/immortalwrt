@@ -38,7 +38,7 @@ svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3gin
 svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
 
 # Add p7zip
-svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
+svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 
 # Set preset-clash-core
 mkdir -p files/etc/openclash/core
