@@ -44,7 +44,7 @@ sub get_cpu_freq {
 	    my $color = "\x1b[92m";
             $freq = <$fh> / 1000;
 	    if($freq > $alert_mhz) {
-		$color = "\x1b[93m";
+		$color = "\x1b[91m";
 	    }
             $freq = sprintf "%s%d Mhz\x1b[0m", $color, $freq;
         } else {
