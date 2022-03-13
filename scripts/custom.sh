@@ -19,26 +19,26 @@ sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
 # Add luci-theme-tano (Default)
-svn co https://github.com/lynxnexy/luci-theme-tano/trunk feeds/luci/themes/luci-theme-tano
+svn co https://github.com/lynxnexy/luci-theme-tano/trunk package/luci-theme-tano
 sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
 
 # Add luci-app-3ginfo-lite
-svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk feeds/luci/applications/luci-app-3ginfo-lite
+svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
 
 # Add luci-app-modeminfo
-# svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk feeds/luci/applications/luci-app-modeminfo
+# svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
 
 # Add luci-app-mmconfig
-# svn co https://github.com/koshev-msk/luci-app-mmconfig/trunk feeds/luci/applications/luci-app-mmconfig
+# svn co https://github.com/koshev-msk/luci-app-mmconfig/trunk package/luci-app-mmconfig
 
 # Add Fibocom L850/L860 scripts
-# svn co https://github.com/koshev-msk/xmm-modem/trunk feeds/luci/applications/xmm-modem
+# svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
 
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk feeds/luci/applications/luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
 
 # Add p7zip
-svn co https://github.com/hubutui/p7zip-lede/trunk package/utils/p7zip
+svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
 
 # Set preset-clash-core
 mkdir -p files/etc/openclash/core
