@@ -14,27 +14,30 @@ sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 # Set timezone
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
+# Add luci-theme-tano
+https://github.com/lynxnexy/luci-theme-tano/trunk feeds/luci/themes/luci-theme-tano
+
 # Add luci-app-3ginfo-lite
-svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
+svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk feeds/luci/applications/luci-app-3ginfo-lite
 
 # Add luci-app-modeminfo
-svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+# svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk feeds/luci/applications/luci-app-modeminfo
 
 # Add luci-app-mmconfig
-svn co https://github.com/koshev-msk/luci-app-mmconfig/trunk package/luci-app-mmconfig
+# svn co https://github.com/koshev-msk/luci-app-mmconfig/trunk feeds/luci/applications/luci-app-mmconfig
 
 # Add Fibocom L850/L860 scripts
-svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
+# svn co https://github.com/koshev-msk/xmm-modem/trunk feeds/luci/applications/xmm-modem
 
 # Set etc/openwrt_release
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
 echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk feeds/luci/applications/luci-app-amlogic
 
 # Add p7zip
-svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
+svn co https://github.com/hubutui/p7zip-lede/trunk package/utils/p7zip
 
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
