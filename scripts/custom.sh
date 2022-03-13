@@ -5,8 +5,12 @@
 # Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
 
+# Set etc/openwrt_release
+sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
+echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
+
 # Set ssid
-sed -i "s/OpenWrt/ImmortalWrt/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/OpenWrt/LYNX/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # Set default password
 sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
@@ -15,7 +19,7 @@ sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
 # Add luci-theme-tano
-https://github.com/lynxnexy/luci-theme-tano/trunk feeds/luci/themes/luci-theme-tano
+svn co https://github.com/lynxnexy/luci-theme-tano/trunk feeds/luci/themes/luci-theme-tano
 
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk feeds/luci/applications/luci-app-3ginfo-lite
@@ -28,10 +32,6 @@ svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk feeds/luci/applicatio
 
 # Add Fibocom L850/L860 scripts
 # svn co https://github.com/koshev-msk/xmm-modem/trunk feeds/luci/applications/xmm-modem
-
-# Set etc/openwrt_release
-sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
-echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk feeds/luci/applications/luci-app-amlogic
@@ -56,4 +56,3 @@ chmod +x files/etc/openclash/core/clash*
 mkdir -p files/bin
 wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
 chmod +x files/bin/speedtest
-
