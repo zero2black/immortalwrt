@@ -40,9 +40,6 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk feeds/luci/applications/l
 # Add p7zip
 svn co https://github.com/hubutui/p7zip-lede/trunk package/utils/p7zip
 
-# Add luci-app-3ginfo-lite
-svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
-
 # Set preset-clash-core
 mkdir -p files/etc/openclash/core
 OPENCLASH_MAIN_URL=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
