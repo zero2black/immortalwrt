@@ -18,8 +18,9 @@ sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 # Set timezone
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
-# Add luci-theme-tano
+# Add luci-theme-tano (Default)
 svn co https://github.com/lynxnexy/luci-theme-tano/trunk feeds/luci/themes/luci-theme-tano
+sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
 
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk feeds/luci/applications/luci-app-3ginfo-lite
