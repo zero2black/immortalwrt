@@ -481,7 +481,7 @@ EOF
     if [[ -d "${cpustat_file}" && -x "bin/bash" && "${DISTRIB_SOURCECODE}" == "immortalwrt" ]]; then
         cp -f ${cpustat_file}/cpustat usr/bin/cpustat && chmod +x usr/bin/cpustat >/dev/null 2>&1
         cp -f ${cpustat_file}/getcpu bin/getcpu && chmod +x bin/getcpu >/dev/null 2>&1
-        cp -f ${cpustat_file}/30-sysinfo.sh etc/profile.d/30-sysinfo.sh >/dev/null 2>&1
+        cp -f ${cpustat_file}/30-sysinfo.sh etc/profile.d/30-sysinfo.sh && chmod +x etc/profile.d/30-sysinfo.sh >/dev/null 2>&1
         sed -i "s/\/bin\/ash/\/bin\/bash/" etc/passwd >/dev/null 2>&1
         sed -i "s/\/bin\/ash/\/bin\/bash/" usr/libexec/login.sh >/dev/null 2>&1
     fi
