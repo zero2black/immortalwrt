@@ -126,7 +126,7 @@ jobs:
           * Firmware information
           Default IP: 192.168.1.1
           Default username: root
-          Default password: none
+          Default password: passwd
           Default WIFI name: LYNX
           Default WIFI password: none
           Install to EMMC: Login to ImmortalWrt → System → Amlogic Service → Install OpenWrt
