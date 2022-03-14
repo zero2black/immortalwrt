@@ -11,7 +11,8 @@ MOTD_DISABLE=""
 SHOW_IP_PATTERN="^[ewr].*|^br.*|^lt.*|^umts.*"
 DATA_STORAGE=/userdisk/data
 MEDIA_STORAGE=/userdisk/snail
-EXT_STORAGE=/mnt/hdd
+SDA_STORAGE=/mnt/sda1
+SDB_STORAGE=/mnt/sdb1
 
 [[ -f /etc/default/motd ]] && . /etc/default/motd
 for f in $MOTD_DISABLE; do
@@ -79,12 +80,18 @@ function storage_info() {
 		data_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
 	fi
 	
-	StorageInfo=$(df -h $EXT_STORAGE 2>/dev/null | grep $EXT_STORAGE)
-	if [[ -n "${StorageInfo}" && ${RootInfo} != *$EXT_STORAGE* ]]; then
-		hdd_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
-		hdd_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
+	StorageInfo=$(df -h $SDA_STORAGE 2>/dev/null | grep $SDA_STORAGE)
+	if [[ -n "${StorageInfo}" && ${RootInfo} != *$SDA_STORAGE* ]]; then
+		sda_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
+		sda_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
 	fi	
 	
+	StorageInfo=$(df -h $SDB_STORAGE 2>/dev/null | grep $SDB_STORAGE)
+	if [[ -n "${StorageInfo}" && ${RootInfo} != *$SDB_STORAGE* ]]; then
+		sdb_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
+		sdb_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
+	fi	
+
 } # storage_info
 
 function get_data_storage() {
@@ -185,8 +192,13 @@ echo ""
 display "[0;34m│[0m SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
 echo ""
 
-if [ "$hdd_usage" != "" ]; then
-	display "[0;34m│[0m Ext. Storage	" "$hdd_usage" "90" "1" "%" " of $hdd_total"
+if [ "$sda_usage" != "" ]; then
+	display "[0;34m│[0m USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
+	echo ""
+fi
+
+if [ "$sdb_usage" != "" ]; then
+	display "[0;34m│[0m USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
 	echo ""
 fi
 
