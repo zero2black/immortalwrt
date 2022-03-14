@@ -1,14 +1,14 @@
 #  ImmortalWrt-21.02 for Amlogic
 
-## Firmware information
+## Firmware information:
 1. Default IP: `192.168.1.1`
 2. Default username: `root`
 3. Default password: `passwd`
 4. Default WIFI name: `LYNX`
 5. Default WIFI password: `none`
 
-## Install to EMMC
-Install to EMMC: Login to `ImmortalWrt` → `System` → `Amlogic Service` → `Install OpenWrt`
+## Install to EMMC:
+Login to `ImmortalWrt` → `System` → `Amlogic Service` → `Install OpenWrt`
 
 ## Overviews:
 ![Overviews](https://i.ibb.co/pZKBR5t/Screenshot-2022-03-14-09-35-45.png)
