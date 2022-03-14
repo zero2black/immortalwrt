@@ -18,9 +18,22 @@ sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 # Set timezone
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
+# Set hostname
+sed -i "s/ImmortalWrt/LYNX/g" package/base-files/files/bin/config_generate
+
+# Set passwd
+sed -i "s/root::0:0:99999:7:::/root:"'$'"1"'$'"pSFNodTy"'$'"ej92Jju6QPD9AIAuelgnr.:18993:0:99999:7:::/g" package/base-files/files/etc/shadow
+
 # Add luci-theme-tano (Default)
 svn co https://github.com/lynxnexy/luci-theme-tano/trunk package/luci-theme-tano
 sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
+
+# Set banner
+rm -rf ./package/emortal/default-settings/files/openwrt_banner
+svn export https://github.com/lynxnexy/immortalwrt/trunk/amlogic/common/files/etc/banner package/emortal/default-settings/files/openwrt_banner
+
+# Set shell zsh
+sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
@@ -65,10 +78,3 @@ git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugi
 cp $GITHUB_WORKSPACE/amlogic/common/patches/zsh/.zshrc .
 cp $GITHUB_WORKSPACE/amlogic/common/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
 popd
-
-# Set banner
-rm -rf ./package/emortal/default-settings/files/openwrt_banner
-svn export https://github.com/lynxnexy/immortalwrt/trunk/amlogic/common/files/etc/banner package/emortal/default-settings/files/openwrt_banner
-
-# Set shell zsh
-sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
