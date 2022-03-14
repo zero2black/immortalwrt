@@ -1,8 +1,8 @@
-#==================================================================================
-# https://github.com/ophub/amlogic-s9xxx-openwrt
-# Description: Automatically Build OpenWrt for Amlogic s9xxx tv box
-# Source code repository: https://github.com/openwrt/openwrt / Branch: 21.02
-#==================================================================================
+#========================================================================================================================
+# Description: Automatically Build ImmortalWrt for Amlogic
+# Function: Add or remove software packages, etc.
+# Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
+#========================================================================================================================
 
 # Build Firmware:
 CONFIG_TARGET_armvirt=y
