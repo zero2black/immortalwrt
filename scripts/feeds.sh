@@ -1,9 +1,8 @@
 #!/bin/bash
 #========================================================================================================================
-# https://github.com/ophub/amlogic-s9xxx-openwrt
-# Description: Automatically Build OpenWrt for Amlogic s9xxx tv box
+# Description: Automatically Build ImmortalWrt for Amlogic
 # Function: Diy script (Before Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
-# Source code repository: https://github.com/openwrt/openwrt / Branch: 21.02
+# Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
 
 # Uncomment a feed source
