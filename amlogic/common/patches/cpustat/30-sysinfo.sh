@@ -175,30 +175,30 @@ display "  Ambient Temp	" "$cpu_tempx" "60" "0" "°C"
 if [ -x /usr/bin/cpustat ]; then
 	cpu_freq=$(/usr/bin/cpustat -F1500)
 echo ""
-	echo -n "  CPU Freq	: $cpu_freq"
+	echo -n "║ CPU Freq	: $cpu_freq"
 else
 	display "CPU Freq" "$cpu_freq" "1500" "0" " Mhz" ""
 fi
 echo ""
 
-display "  Memory Usage	" "$memory_usage" "70" "0" "%" " of ${memory_total}MB"
+display "║ Memory Usage	" "$memory_usage" "70" "0" "%" " of ${memory_total}MB"
 echo ""
-printf "[0;34m│[0m IP Address	: \x1B[92m%s\x1B[0m" "$ip_address"
+printf "║ IP Address	: \x1B[92m%s\x1B[0m" "$ip_address"
 #display "Swap Usage" "$swap_usage" "10" "0" "%" " of $swap_total""Mb"
 echo ""
 
 #display " Boot Storage	" "$boot_usage" "90" "1" "%" " of $boot_total"
 #echo ""
-display "[0;34m│[0m SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
+display "║ SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
 echo ""
 
 if [ "$sda_usage" != "" ]; then
-	display "[0;34m│[0m USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
+	display "║ USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
 	echo ""
 fi
 
 if [ "$sdb_usage" != "" ]; then
-	display "[0;34m│[0m USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
+	display "║ USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
 	echo ""
 fi
 
@@ -211,4 +211,4 @@ fi
 #	echo ""
 #fi
 #echo ""
-echo "[0;34m└───────[0;34m─────[0;37m─────────────[0;34;94m───────────[0m"
+echo "╚════════════════════════════════╝"
