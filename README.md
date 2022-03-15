@@ -11,10 +11,10 @@
 Login to `ImmortalWrt` → `System` → `Amlogic Service` → `Install OpenWrt`
 
 ## Overviews:
-![Overviews](https://i.ibb.co/pZKBR5t/Screenshot-2022-03-14-09-35-45.png)
+![Overviews](https://i.ibb.co/tCRNrzh/Screenshot-2022-03-15-20-31-19.png)
 
 ## Terminal:
-![Overviews](https://i.ibb.co/5Y7S46t/Screenshot-2022-03-14-09-40-34.png)
+![Overviews](https://i.ibb.co/Tv3XYWB/Screenshot-2022-03-15-20-40-18.png)
 
 ## Acknowledgments
 
