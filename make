@@ -500,7 +500,7 @@ EOF
     fi
     
     # Fix luci-app-3ginfo-lite
-    chmod -R +x usr/share/3ginfo-lite/ >/dev/null 2>&1
+    # chmod -R +x usr/share/3ginfo-lite/ >/dev/null 2>&1
 
     # Add firmware information
     echo "PLATFORM='amlogic'" >>${op_release} 2>/dev/null
