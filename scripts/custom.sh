@@ -38,14 +38,14 @@ sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
 
-# Add luci-app-modeminfo
-# svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+# Add luci-app-modemband
+svn co https://github.com/4IceG/luci-app-modemband/trunk package/luci-app-modemband
 
-# Add luci-app-mmconfig
-# svn co https://github.com/koshev-msk/luci-app-mmconfig/trunk package/luci-app-mmconfig
+# Add luci-app-atinout-mod
+svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
 
-# Add Fibocom L850/L860 scripts
-# svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
+# Add luci-app-sms-tool
+svn co https://github.com/4IceG/luci-app-sms-tool/trunk package/luci-app-sms-tool
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
