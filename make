@@ -500,7 +500,26 @@ EOF
     fi
     
     # Fix luci-app-3ginfo-lite
-    # chmod -R +x usr/share/3ginfo-lite/ >/dev/null 2>&1
+    chmod +x usr/share/3ginfo-lite/3ginfo.sh >/dev/null 2>&1
+    chmod +x usr/share/3ginfo-lite/set_3ginfo_port.sh >/dev/null 2>&1
+    chmod +x usr/share/3ginfo-lite/3ginfo-hilink/alcatel_hilink.sh >/dev/null 2>&1
+    chmod +x usr/share/3ginfo-lite/3ginfo-hilink/huawei_hilink.sh >/dev/null 2>&1
+    chmod +x usr/share/3ginfo-lite/3ginfo-hilink/zte.sh >/dev/null 2>&1
+
+    # Fix luci-app-atinout
+    chmod +x sbin/set_at_port.sh >/dev/null 2>&1
+    chmod +x usr/bin/luci-app-atinout >/dev/null 2>&1
+
+    # Fix luci-app-modemband
+    chmod +x sbin/set_up_bandz.sh >/dev/null 2>&1
+    chmod +x usr/bin/modemband.sh >/dev/null 2>&1
+
+    # Fix luci-app-sms-tool
+    chmod +x etc/init.d/smsled >/dev/null 2>&1
+    chmod +x sbin/cronsync.sh >/dev/null 2>&1
+    chmod +x sbin/set_sms_ports.sh >/dev/null 2>&1
+    chmod +x sbin/smsled-init.sh >/dev/null 2>&1
+    chmod +x sbin/smsled.sh >/dev/null 2>&1
 
     # Add firmware information
     echo "PLATFORM='amlogic'" >>${op_release} 2>/dev/null
