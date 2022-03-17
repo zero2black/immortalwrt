@@ -21,8 +21,8 @@ depends_repo="https://github.com/ophub/amlogic-s9xxx-armbian/tree/main/build-arm
 script_repo="https://github.com/ophub/luci-app-amlogic/tree/main/luci-app-amlogic/root/usr/sbin"
 #
 # Latest kernel download repository
-#kernel_repo="https://github.com/ophub/kernel/tree/main/pub"
-kernel_repo="https://github.com/lynxnexy/kernel/tree/main/pub"
+kernel_repo="https://github.com/ophub/kernel/tree/main/pub"
+#kernel_repo="https://github.com/lynxnexy/kernel/tree/main/pub"
 version_branch="stable"
 build_kernel=("5.15.28" "5.4.184")
 auto_kernel="true"
