@@ -882,7 +882,7 @@ CONFIG_PACKAGE_python3-xml=y
 CONFIG_PACKAGE_qrencode=y
 CONFIG_PACKAGE_unrar=y
 CONFIG_PACKAGE_ffmpeg=y
-CONFIG_PACKAGE_yt-dlp=y
+# CONFIG_PACKAGE_yt-dlp is not set
 CONFIG_PACKAGE_zsh=y
 
 # Custom:
