@@ -1,6 +1,6 @@
 #!/bin/bash
 #========================================================================================================================
-# Description: Automatically Build ImmortalWrt for Amlogic
+# Description: Automatically Build ImmortalWrt for Amlogic ARMv8
 # Function: Diy script (After Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
 # Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
