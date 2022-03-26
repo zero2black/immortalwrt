@@ -1,6 +1,6 @@
-name: 'Use ophub script to package Armvirt as OpenWrt'
+name: 'Use ophub script to package Armvirt as ImmortalWrt'
 author: 'ophub'
-description: 'Package Armvirt as OpenWrt. Support Amlogic s9xxx tv box.'
+description: 'Package Armvirt as ImmortalWrt. Support Amlogic ARMv8.'
 inputs:
   mode:
     description: 'Choose script.'
@@ -9,11 +9,11 @@ inputs:
   amlogic_openwrt:
     description: 'Choose Amlogic SoC.'
     required: false
-    default: 's905x'
+    default: 'ARMv8'
   amlogic_kernel:
     description: 'Choose kernel.'
     required: false
-    default: '5.15.28_5.4.184'
+    default: '5.15.25_5.4.180'
   auto_kernel:
     description: 'Auto use the latest kernel.'
     required: false
@@ -25,7 +25,7 @@ inputs:
   armvirt64_path:
     description: 'Choose armvirt64 file path.'
     required: false
-    default: 'immortalwrt/bin/targets/*/*/*.tar.gz'
+    default: 'immortalwrt/bin/targets/*/*/*rootfs.tar.gz'
 
 runs:
   using: "composite"
