@@ -1,6 +1,6 @@
 #========================================================================================================================
 # https://github.com/lynxnexy/immortalwrt
-# Description: Automatically Build ImmortalWrt for Amlogic
+# Description: Automatically Build ImmortalWrt for Amlogic ARMv8
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 # Source code repository: https://github.com/immortalwrt/immortalwrt / Branch: 21.02
 #========================================================================================================================
@@ -103,7 +103,7 @@ jobs:
       id: build
       run: |
         [ -d immortalwrt-armvirt ] || mkdir -p immortalwrt-armvirt
-        cp -f immortalwrt/bin/targets/*/*/*.tar.gz immortalwrt-armvirt/ && sync
+        cp -f immortalwrt/bin/targets/*/*/*rootfs.tar.gz immortalwrt-armvirt/ && sync
         sudo chmod +x make
         sudo ./make -d ${{ github.event.inputs.more_settings }}
         [ -d ipk ] || mkdir -p ipk
@@ -122,7 +122,7 @@ jobs:
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          This is ImmortalWrt firmware for Amlogic
+          This is ImmortalWrt firmware for Amlogic ARMv8
           * Firmware information
           Default IP: 192.168.1.1
           Default username: root
