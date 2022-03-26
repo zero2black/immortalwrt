@@ -1,4 +1,4 @@
-#  ImmortalWrt-21.02 for Amlogic
+#  ImmortalWrt-21.02 for Amlogic ARMv8
 
 ## Firmware information:
 1. Default IP: `192.168.1.1`
