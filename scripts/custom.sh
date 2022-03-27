@@ -28,6 +28,11 @@ sed -i "s/root::0:0:99999:7:::/root:"'$'"1"'$'"pSFNodTy"'$'"ej92Jju6QPD9AIAuelgn
 svn co https://github.com/lynxnexy/luci-theme-tano/trunk package/luci-theme-tano
 sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
 
+# Add luci-theme-argon
+rm -rf luci/themes/luci-theme-argon
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+
 # Set banner
 rm -rf ./package/emortal/default-settings/files/openwrt_banner
 svn export https://github.com/lynxnexy/immortalwrt/trunk/amlogic/common/rootfs/etc/banner package/emortal/default-settings/files/openwrt_banner
