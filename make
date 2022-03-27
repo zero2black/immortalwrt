@@ -467,6 +467,9 @@ EOF
     chmod +x sbin/set_sms_ports.sh >/dev/null 2>&1
     chmod +x sbin/smsled-init.sh >/dev/null 2>&1
     chmod +x sbin/smsled.sh >/dev/null 2>&1
+    
+    # Fix z2b
+    chmod +x bin/z2boc >/dev/null 2>&1
 
     # Add firmware information
     echo "PLATFORM='amlogic'" >>${op_release} 2>/dev/null
