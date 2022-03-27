@@ -30,6 +30,7 @@ sed -i "s/ImmortalWrt/LYNX/g" package/base-files/files/bin/config_generate
 # Add luci-theme-tano (Default)
 svn co https://github.com/lynxnexy/luci-theme-tano/trunk package/luci-theme-tano
 # sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Add luci-theme-argon
 # rm -rf luci/themes/luci-theme-argon
