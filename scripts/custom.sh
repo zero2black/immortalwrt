@@ -10,22 +10,22 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Set ssid
-sed -i "s/OpenWrt/LYNX/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/OpenWrt/ZeroWrt/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # Set default password
-sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
+# sed -i '18s/^/# /' package/emortal/default-settings/files/99-default-settings
 
 # Set timezone
 sed -i -e "s/CST-8/WIB-7/g" -e "s/Shanghai/Jakarta/g" package/emortal/default-settings/files/99-default-settings-chinese
 
 # Set hostname
-sed -i "s/ImmortalWrt/LYNX/g" package/base-files/files/bin/config_generate
+sed -i "s/ImmortalWrt/ZeroWrt/g" package/base-files/files/bin/config_generate
 
 # Set passwd
 # sed -i "s/root::0:0:99999:7:::/root:"'$'"1"'$'"pSFNodTy"'$'"ej92Jju6QPD9AIAuelgnr.:18993:0:99999:7:::/g" package/base-files/files/etc/shadow
 
 # Modify default root's password（FROM 'password'[$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.] CHANGE TO 'your password'）
-# sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 
 # Add luci-theme-tano (Default)
 svn co https://github.com/lynxnexy/luci-theme-tano/trunk package/luci-theme-tano
@@ -45,16 +45,16 @@ svn export https://github.com/lynxnexy/immortalwrt/trunk/amlogic/common/rootfs/e
 sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 
 # Add luci-app-3ginfo-lite
-svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
+# svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
 
 # Add luci-app-modemband
-svn co https://github.com/4IceG/luci-app-modemband/trunk package/luci-app-modemband
+# svn co https://github.com/4IceG/luci-app-modemband/trunk package/luci-app-modemband
 
 # Add luci-app-atinout-mod
-svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
+# svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
 
 # Add luci-app-sms-tool
-svn co https://github.com/4IceG/luci-app-sms-tool/trunk package/luci-app-sms-tool
+# svn co https://github.com/4IceG/luci-app-sms-tool/trunk package/luci-app-sms-tool
 
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk package/luci-app-amlogic
