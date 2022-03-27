@@ -1,0 +1,103 @@
+#!/bin/bash
+
+export CHECKFILE="/usr/lib/lua/luci/model/cbi/openclash/client.lua"
+if [ -e "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
+	sed -i 's#m = SimpleForm("openclash",translate("OpenClash"))#m = SimpleForm("openclash") --z2b--#g' $CHECKFILE
+	sed -i 's#m.title = translate#\n-- Helmi Amirudin\nm.title = translate#g' $CHECKFILE
+	sed -i "/d.title =/c\d.title = false" $CHECKFILE
+	sed -i "/m.description =/c\m.description = false" $CHECKFILE
+	sed -i "s#s:section#-- s:section#g" $CHECKFILE
+	echo -e "  Remove MyIP and Credit..."
+fi
+unset CHECKFILE
+
+	cp /usr/lib/lua/luci/view/openclash/myip.htm /usr/lib/lua/luci/view/openclash/myip.htm.bak
+	echo "<!DOCTYPE html><html></html>" > /usr/lib/lua/luci/view/openclash/myip.htm
+	cp /usr/lib/lua/luci/view/openclash/developer.htm /usr/lib/lua/luci/view/openclash/developer.htm.bak
+	echo "<!DOCTYPE html><html></html>" > /usr/lib/lua/luci/view/openclash/developer.htm
+
+export CHECKFILE="/usr/lib/lua/luci/controller/openclash.lua"
+if [ -f "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
+	sed -i 's|entry({"admin", "services", "openclash", "config-subscribe"}|---entry({"admin", "services", "openclash", "config-subscribe"}|g' $CHECKFILE
+	sed -i 's|entry({"admin", "services", "openclash", "rule-providers-settings"}|---entry({"admin", "services", "openclash", "rule-providers-settings"}|g' $CHECKFILE
+	sed -i 's|entry({"admin", "services", "openclash", "servers"},cbi("openclash/servers")|---entry({"admin", "services", "openclash", "servers"},cbi("openclash/servers")|g' $CHECKFILE
+	sed -i 's|60).leaf = true|nil).leaf = true|g' $CHECKFILE
+	sed -i 's|70).leaf = true|60).leaf = true|g' $CHECKFILE
+	sed -i 's|80).leaf = true|70).leaf = true|g' $CHECKFILE
+	sed -i 's|50).leaf = true|90).leaf = true|g' $CHECKFILE
+	sed -i 's|40).leaf = true|80).leaf = true|g' $CHECKFILE
+	sed -i 's|70).leaf = true|70).leaf = true\n    entry({"admin", "services", "openclash", "proxy-provider-file-manage"},form("openclash/proxy-provider-file-manage"),_("Proxy Provider"), 40).leaf = true\n    entry({"admin", "services", "openclash", "rule-providers-file-manage"},form("openclash/rule-providers-file-manage"),_("Rule Provider"), 50).leaf = true --z2b--|g' $CHECKFILE
+	echo -e "   Show Menu Clash..."
+fi
+unset CHECKFILE
+
+
+#export CHECKFILE="/usr/lib/lua/luci/view/openclash/update.htm"
+#if ! grep -q "/cgi-bin/luci/admin/services/openclash/backup" "$CHECKFILE"; then
+#	sed -i 's#<%="backup"%>#<%="/cgi-bin/luci/admin/services/openclash/backup"%>#g' $CHECKFILE
+#	logger "   Clash Premium Patched with OpenClash Backup..."
+#	echo -e "   Clash Premium Patched with OpenClash Backup..."
+#fi
+#unset CHECKFILE
+
+export CHECKFILE="/usr/lib/lua/luci/view/openclash/toolbar_show.htm"
+if [ -f "$CHECKFILE" ] && ! grep -q "sembunyi" $CHECKFILE; then
+#	sed -i 's#dot-typing{position#dot-typingx{position#g' $CHECKFILE
+	sed -i 's|class="tool_label"|class="tool_label" style="display:none" id="sembunyi"|g' $CHECKFILE
+#	sed -i 's|<tr height="50px">|<tr height="50px" style="display:none" id="hapus2">|g' $CHECKFILE
+	
+#	sed -i 's|hid_1.style.display = "none"|hid_1.style.display = "true"|g' $CHECKFILE
+#	sed -i 's|hid_2.style.display = "none"|hid_2.style.display = "true"|g' $CHECKFILE
+#	sed -i 's|hid_3.style.display = "none"|hid_3.style.display = "true"|g' $CHECKFILE
+	
+#	sed -i '/<img id="logo"/c\<img id="logo" src="<%=media%>/openclash.png" title="Hello, World!" alt="Openclash" width="250" onclick="return homepage()" />' $CHECKFILE
+	echo -e "   Hidden Wiki etc"
+fi
+unset CHECKFILE
+
+export CHECKFILE="/usr/lib/lua/luci/view/openclash/status.htm"
+if [ -f "$CHECKFILE" ] && ! grep -q "hapus1" $CHECKFILE; then
+	sed -i 's#dot-typing{position#dot-typingx{position#g' $CHECKFILE
+	sed -i 's|<tr><td colspan="4" width="100%">|<tr><td colspan="4" width="100%" style="display:none" id="hapus1">|g' $CHECKFILE
+	sed -i 's|<tr height="50px">|<tr height="50px" style="display:none" id="hapus2">|g' $CHECKFILE
+	
+#	sed -i 's|hid_1.style.display = "none"|hid_1.style.display = "true"|g' $CHECKFILE
+#	sed -i 's|hid_2.style.display = "none"|hid_2.style.display = "true"|g' $CHECKFILE
+#	sed -i 's|hid_3.style.display = "none"|hid_3.style.display = "true"|g' $CHECKFILE
+	
+	sed -i 's|alt="Openclash" width="150" onclick="return homepage()" />|alt="Openclash" width="100" onclick="return homepage()" />|g' $CHECKFILE
+	sed -i 's|color: white;|color: black;|g' $CHECKFILE
+	sed -i 's|font-size: 14px;|font-size: 12px;|g' $CHECKFILE
+	
+	echo -e "   Hidden Button"
+fi
+unset CHECKFILE
+
+
+export CHECKFILE="/usr/lib/lua/luci/model/cbi/openclash/settings.lua"
+if [ -e "$CHECKFILE" ] && ! grep -q "sembunyi" $CHECKFILE; then
+	sed -i 's#m = Map("openclash", translate("Global Settings(Will Modify The Config File Or Subscribe According To The Settings On This Page)"))#m = Map("openclash")#g' $CHECKFILE
+	sed -i 's#m.description=translate#--sembunyi m.description=translate#g' $CHECKFILE
+	echo -e "   Remove String "
+fi
+unset CHECKFILE
+
+export CHECKFILE="/usr/lib/lua/luci/model/cbi/openclash/proxy-provider-file-manage.lua"
+if [ -e "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
+	sed -i 's|,translate("Proxy Provider File List")||g' $CHECKFILE
+	sed -i 's|("admin", "services", "openclash", "config"))|("admin", "services", "openclash", "client")) --z2b--|g' $CHECKFILE
+	echo -e "   Clash Proxy Manager   "
+fi
+unset CHECKFILE
+
+export CHECKFILE="/usr/lib/lua/luci/model/cbi/openclash/rule-providers-file-manage.lua"
+if [ -e "$CHECKFILE" ] && ! grep -q "z2b" $CHECKFILE; then
+	sed -i 's|,translate("Rule Providers File List")||g' $CHECKFILE
+	sed -i 's|("admin", "services", "openclash", "config"))|("admin", "services", "openclash", "client")) --z2b--|g' $CHECKFILE
+	echo -e "   Clash Rule Manager   "
+fi
+unset CHECKFILE
+
+rm -rf /tmp/luci-modulecache/
+rm -rf /tmp/luci-indexcache*
+/etc/init.d/rpcd restart
