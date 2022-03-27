@@ -887,10 +887,10 @@ CONFIG_PACKAGE_ffmpeg=y
 CONFIG_PACKAGE_zsh=y
 
 # Custom:
-CONFIG_PACKAGE_luci-app-3ginfo-lite=y
-CONFIG_PACKAGE_luci-app-modemband=y
-CONFIG_PACKAGE_luci-app-atinout-mod=y
-CONFIG_PACKAGE_luci-app-sms-tool=y
+# CONFIG_PACKAGE_luci-app-3ginfo-lite is not set
+# CONFIG_PACKAGE_luci-app-modemband is not set
+# CONFIG_PACKAGE_luci-app-atinout-mod is not set
+# CONFIG_PACKAGE_luci-app-sms-tool is not set
 # CONFIG_PACKAGE_luci-app-modeminfo is not set
 # CONFIG_PACKAGE_luci-app-mmconfig is not set
 # CONFIG_PACKAGE_xmm-modem is not set
