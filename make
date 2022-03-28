@@ -446,6 +446,16 @@ EOF
         cp -f ${balethirq_file}/balance_irq etc/balance_irq >/dev/null 2>&1
     fi
 
+    # Add gpio controler
+    gpio_file=${configfiles_path}/patches/gpio
+    if [ -d "${gpio_file}" ]; then
+        cp -f ${gpio_file}/gpio usr/bin/gpio && chmod +x usr/bin/gpio >/dev/null 2>&1
+        cp -f ${gpio_file}/getgpio usr/bin/getgpio && chmod +x usr/bin/getgpio >/dev/null 2>&1
+        cp -f ${gpio_file}/getgpio usr/bin/gpiotemp && chmod +x usr/bin/gpiotemp >/dev/null 2>&1
+        sed -i "/exit/i\sleep 20 && /usr/bin/getgpio -r" etc/rc.local >/dev/null 2>&1
+        sed -i "/exit/i\/usr/bin/gpiotemp" etc/rc.local >/dev/null 2>&1
+    fi
+
     # Fix luci-app-3ginfo-lite
     chmod +x usr/share/3ginfo-lite/3ginfo.sh >/dev/null 2>&1
     chmod +x usr/share/3ginfo-lite/set_3ginfo_port.sh >/dev/null 2>&1
@@ -470,6 +480,7 @@ EOF
     
     # Fix z2b
     chmod +x bin/z2boc >/dev/null 2>&1
+    sed -i "/exit/i\z2boc" etc/rc.local >/dev/null 2>&1
 
     # Add firmware information
     echo "PLATFORM='amlogic'" >>${op_release} 2>/dev/null
