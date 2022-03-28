@@ -688,7 +688,7 @@ CONFIG_PACKAGE_luci-app-argon-config=y
 CONFIG_PACKAGE_luci-theme-material=y
 # CONFIG_PACKAGE_luci-theme-openwrt is not set
 # CONFIG_PACKAGE_luci-theme-openwrt-2020 is not set
-# CONFIG_PACKAGE_luci-theme-tano=y
+CONFIG_PACKAGE_luci-theme-tano=y
 
 # Protocols:
 CONFIG_PACKAGE_luci-proto-3g=y
