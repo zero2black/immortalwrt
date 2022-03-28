@@ -447,14 +447,18 @@ EOF
     fi
 
     # Add gpio controler
-    gpio_file=${configfiles_path}/patches/gpio
-    if [ -d "${gpio_file}" ]; then
-        cp -f ${gpio_file}/gpio usr/bin/gpio && chmod +x usr/bin/gpio >/dev/null 2>&1
-        cp -f ${gpio_file}/getgpio usr/bin/getgpio && chmod +x usr/bin/getgpio >/dev/null 2>&1
-        cp -f ${gpio_file}/getgpio usr/bin/gpiotemp && chmod +x usr/bin/gpiotemp >/dev/null 2>&1
-        sed -i "/exit/i\sleep 20 && /usr/bin/getgpio -r" etc/rc.local >/dev/null 2>&1
-        sed -i "/exit/i\/usr/bin/gpiotemp" etc/rc.local >/dev/null 2>&1
-    fi
+    #gpio_file=${configfiles_path}/patches/gpio
+    #if [ -d "${gpio_file}" ]; then
+    #    cp -f ${gpio_file}/gpio usr/bin/gpio && chmod +x usr/bin/gpio >/dev/null 2>&1
+    #    cp -f ${gpio_file}/getgpio usr/bin/getgpio && chmod +x usr/bin/getgpio >/dev/null 2>&1
+    #    cp -f ${gpio_file}/getgpio usr/bin/gpiotemp && chmod +x usr/bin/gpiotemp >/dev/null 2>&1
+    #    sed -i "/exit/i\sleep 20 && /usr/bin/getgpio -r" etc/rc.local >/dev/null 2>&1
+    #    sed -i "/exit/i\/usr/bin/gpiotemp" etc/rc.local >/dev/null 2>&1
+    #fi
+    chmod +x usr/bin/hgled >/dev/null 2>&1
+    chmod +x usr/bin/hgledon >/dev/null 2>&1
+    sed -i "/exit/i\/usr/bin/hgled -r" etc/rc.local >/dev/null 2>&1
+    
 
     # Fix luci-app-3ginfo-lite
     chmod +x usr/share/3ginfo-lite/3ginfo.sh >/dev/null 2>&1
