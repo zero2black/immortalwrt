@@ -30,12 +30,16 @@ sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999
 # Add luci-theme-tano (Default)
 svn co https://github.com/lynxnexy/luci-theme-tano/trunk package/luci-theme-tano
 # sed -i "s/+luci-theme-bootstrap //" feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
 
 # Add luci-theme-argon
-# rm -rf luci/themes/luci-theme-argon
+rm -rf luci/themes/luci-theme-argon
 # git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
 # git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# rm -rf package/lean/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+wget https://github.com/jerrykuku/luci-app-argon-config/releases/download/v0.8-beta/luci-app-argon-config_0.8-beta_all.ipk package/lean/luci-app-argon-config.ipk
+
 
 # Set banner
 rm -rf ./package/emortal/default-settings/files/openwrt_banner
