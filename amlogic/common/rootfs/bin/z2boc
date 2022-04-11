@@ -77,7 +77,7 @@ unset CHECKFILE
 export CHECKFILE="/usr/lib/lua/luci/model/cbi/openclash/settings.lua"
 if [ -e "$CHECKFILE" ] && ! grep -q "sembunyi" $CHECKFILE; then
 	sed -i 's#m = Map("openclash", translate("Global Settings(Will Modify The Config File Or Subscribe According To The Settings On This Page)"))#m = Map("openclash")#g' $CHECKFILE
-	sed -i 's#m.description=translate#--sembunyi m.description=translate#g' $CHECKFILE
+	sed -i 's#m.description#--sembunyi m.description#g' $CHECKFILE
 	echo -e "   Remove String "
 fi
 unset CHECKFILE
