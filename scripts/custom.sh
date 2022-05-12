@@ -65,9 +65,16 @@ wget -qO- $CLASH_GAME_URL | tar xOvz > files/etc/openclash/core/clash_game
 wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
 chmod +x files/etc/openclash/core/clash*
 
-# v2ray-rules-dat
+# Set v2ray-rules-dat
+mkdir -p files/etc/openclash
 curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o files/etc/openclash/GeoSite.dat
 curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o files/etc/openclash/GeoIP.dat
+
+
+# Set yt-dlp
+mkdir -p files/bin
+curl -sL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o files/bin/yt-dlp
+chmod +x files/bin/yt-dlp
 
 # Set preset-speedtest
 mkdir -p files/bin
