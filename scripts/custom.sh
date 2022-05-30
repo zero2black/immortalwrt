@@ -47,6 +47,9 @@ svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atin
 # Add luci-app-sms-tool
 svn co https://github.com/4IceG/luci-app-sms-tool/trunk package/luci-app-sms-tool
 
+# Add luci-app-modeminfo
+svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+
 # Add xmm-modem
 svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
 
