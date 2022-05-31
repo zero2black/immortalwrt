@@ -44,7 +44,8 @@ depends_repo="https://github.com/ophub/amlogic-s9xxx-armbian/tree/main/build-arm
 # Install/Update script files download repository
 script_repo="https://github.com/ophub/luci-app-amlogic/tree/main/luci-app-amlogic/root/usr/sbin"
 # Kernel files download repository
-kernel_repo="https://github.com/ophub/kernel/tree/main/pub"
+# kernel_repo="https://github.com/ophub/kernel/tree/main/pub"
+kernel_repo="https://github.com/rayhanbone/kernel/tree/main/pub"
 version_branch="stable"
 auto_kernel="false"
 build_kernel=("5.10.110" "5.4.188")
